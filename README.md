@@ -14,7 +14,9 @@ Konnectli — Multi-Vendor Marketplace Platform
 Live, production platform connecting SME vendors with customers across South Africa. Sole developer, from architecture through deployment.
 
 What it does: Full multi-vendor e-commerce marketplace with vendor/customer/admin portals, commission-based vendor payments, KYB (Know Your Business) verification, geolocation-based search, and tiered subscription plans.
+
 Role: Sole developer — backend architecture, database design, frontend, and deployment.
+
 Tech: PHP, MySQL, vanilla JavaScript · PayFast payment integration · Hosted on HostAfrica (cPanel)
 How the stack is used:
 PHP — all server-side logic: authentication and role-based access across the three portals, the KYB verification workflow, commission calculations on vendor sales, and subscription tier logic.
@@ -61,7 +63,7 @@ Tech: ASP.NET Core MVC (.NET 9.0), SQL Server (ADO.NET), Tailwind CSS
 How the stack is used: ASP.NET Core MVC (.NET 9.0) powers resident-facing issue reporting and real-time status tracking, plus local events/RSVP. SQL Server is accessed via raw ADO.NET (no ORM) for direct control over query shape and performance. BSTs, heaps, and graphs are used in the application logic itself — for prioritizing/sorting issue reports and mapping geographic relationships between reported issues and event locations. Tailwind CSS handles styling via utility classes.
 Majoko Rentals — Website and App
 
-Rental property website and companion app (final-year group project).
+Majoko Rental property website and companion app (final-year group project).
 
 Role: UI/UX Designer and Developer
 Tech: C#, Firebase
