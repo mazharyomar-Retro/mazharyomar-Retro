@@ -8,7 +8,7 @@ I'm a Computer Science graduate who builds database-driven web applications end-
 
 I'm currently looking for opportunities as a Web Developer / Full-Stack Developer / Software Developer / Database Developer, available immediately.
 
-📧 mazharyomar@gmail.com  |  📞 071 207 2582  |  🔗 [LinkedIn](https://www.linkedin.com/in/mohamed-azhar-yusuf-omar)
+📧 mazharyomar@gmail.com  |  📞 071 207 2582  |  🔗 (https://www.linkedin.com/in/mohamed-azhar-yusuf-omar)
 
 🚀 Featured Project
 Konnectli — Multi-Vendor Marketplace Platform
