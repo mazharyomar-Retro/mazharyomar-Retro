@@ -1,5 +1,3 @@
-## Hi there 👋
-
 Hi, I'm Mohamed Azhar Yusuf Omar 👋
 
 Full-Stack Developer | BSc Application Development
@@ -18,6 +16,12 @@ Live, production platform connecting SME vendors with customers across South Afr
 What it does: Full multi-vendor e-commerce marketplace with vendor/customer/admin portals, commission-based vendor payments, KYB (Know Your Business) verification, geolocation-based search, and tiered subscription plans.
 Role: Sole developer — backend architecture, database design, frontend, and deployment.
 Tech: PHP, MySQL, vanilla JavaScript · PayFast payment integration · Hosted on HostAfrica (cPanel)
+How the stack is used:
+PHP — all server-side logic: authentication and role-based access across the three portals, the KYB verification workflow, commission calculations on vendor sales, and subscription tier logic.
+MySQL — relational data model tying users, vendor stores, products, orders, subscriptions, and geolocation records together.
+Vanilla JavaScript — frontend interactivity (geolocation-based search/filtering, dynamic vendor onboarding forms, cart updates) handled without a framework.
+PayFast — payment gateway for customer transactions and vendor payouts.
+HostAfrica (cPanel) — deployment target; manual, cPanel-managed hosting rather than a cloud/CI-CD pipeline.
 🛠️ Skills & Abilities
 
 Programming Languages: Java, C#, Kotlin, JavaScript
@@ -42,22 +46,26 @@ CMCS — Lecturer Claim Management System
 Helps lecturers track and submit claims for payment.
 
 Tech: C#, SQL Server (SSMS)
+How the stack is used: C# implements the application logic — claim submission, validation, and approval workflows for lecturers. SQL Server (designed and managed directly via SSMS) stores claims data, lecturer records, and payment status.
 Agri-Energy Connect Platform
 
 Web platform enabling farmers to manage and publish agricultural products, and employees to manage farmer accounts and browse/filter listings, with secure role-based login.
 
 Tech: ASP.NET Core MVC, SQL Server
+How the stack is used: ASP.NET Core MVC structures the app around separate controllers/views for farmers (managing and publishing listings) versus employees (managing farmer accounts, browsing/filtering listings), with role-based login gating which views each user can reach. SQL Server backs farmer accounts, product listings, and roles.
 Municipal Community Platform (MyMunicipal)
 
 Lets residents report municipal issues (potholes, streetlights, water leaks, sanitation) and track service requests in real time; includes local events with RSVP. Uses BSTs, heaps, and graphs for efficient data handling.
 
 Tech: ASP.NET Core MVC (.NET 9.0), SQL Server (ADO.NET), Tailwind CSS
+How the stack is used: ASP.NET Core MVC (.NET 9.0) powers resident-facing issue reporting and real-time status tracking, plus local events/RSVP. SQL Server is accessed via raw ADO.NET (no ORM) for direct control over query shape and performance. BSTs, heaps, and graphs are used in the application logic itself — for prioritizing/sorting issue reports and mapping geographic relationships between reported issues and event locations. Tailwind CSS handles styling via utility classes.
 Majoko Rentals — Website and App
 
 Rental property website and companion app (final-year group project).
 
 Role: UI/UX Designer and Developer
 Tech: C#, Firebase
+How the stack is used: C# builds the shared application logic across the website and companion app. Firebase serves as the backend — its real-time NoSQL database keeps property listings in sync between web and mobile clients, and its mobile SDKs simplify the app's data layer (auth and likely image storage).
 💼 Experience
 
 Developer — Konnectli (konnectli.com) · 2025 – Present
