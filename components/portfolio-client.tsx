@@ -168,7 +168,6 @@ export function PortfolioClient({ profile, projects, stack }: PortfolioClientPro
         <div className="footer-links">
           <a href={profile.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-          <span className="vercel-badge"><span className="vercel-triangle" /> Deployed on Vercel</span>
         </div>
       </footer>
     </main>
