@@ -37,7 +37,7 @@ export function PortfolioClient({ profile, projects, stack }: PortfolioClientPro
       <header className="site-header">
         <nav className="nav-shell" aria-label="Main navigation">
           <a className="wordmark" href="#top" aria-label={`${profile.shortName}, home`}>
-            <span className="wordmark-mark">A<span>.</span></span>
+            <span className="wordmark-mark">M<span>.</span></span>
             <span>{profile.shortName}</span>
           </a>
           <div className="nav-links">
@@ -75,7 +75,7 @@ export function PortfolioClient({ profile, projects, stack }: PortfolioClientPro
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
           <div className="orbit-core"><span>MAYO</span><i /></div>
-          <div className="aside-note"><span className="note-index">01 / 04</span><span>Ideas into<br />working software.</span></div>
+          <div className="aside-note"><span className="note-index">01 / {String(projects.length).padStart(2, "0")}</span><span>Ideas into<br />working software.</span></div>
           <div className="aside-location"><span className="mini-dot" /> Available worldwide</div>
         </div>
         <div className="hero-footnote"><span>Scroll to explore</span><span className="scroll-line" /></div>
@@ -118,7 +118,7 @@ export function PortfolioClient({ profile, projects, stack }: PortfolioClientPro
               <div className="project-body">
                 <div className="project-title-row"><h3>{project.title}</h3><span className="project-number">{project.number}</span></div>
                 <p>{project.description}</p>
-                {project.role && <p className="project-role"><span>Role</span>{" "}{project.role}</p>}
+                {project.role && <p className="project-role"><span>Role: </span>{project.role}</p>}
                 <ul className="tech-pills" aria-label={`${project.title} technologies`}>
                   {project.stack.map((item) => <li key={item}>{item}</li>)}
                 </ul>
