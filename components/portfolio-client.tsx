@@ -16,7 +16,7 @@ type Profile = {
   resumeLabel: string
 }
 
-const filters = ["All", "Full-Stack", "AI & Tools", "Frontend"] as const
+const filters = ["All", "Freelance", "University Projects"] as const
 
 type PortfolioClientProps = {
   profile: Profile
@@ -74,7 +74,7 @@ export function PortfolioClient({ profile, projects, stack }: PortfolioClientPro
         <div className="hero-aside" aria-label="Developer profile summary">
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
-          <div className="orbit-core"><span>AO</span><i /></div>
+          <div className="orbit-core"><span>MAYO</span><i /></div>
           <div className="aside-note"><span className="note-index">01 / 04</span><span>Ideas into<br />working software.</span></div>
           <div className="aside-location"><span className="mini-dot" /> Available worldwide</div>
         </div>
@@ -118,11 +118,12 @@ export function PortfolioClient({ profile, projects, stack }: PortfolioClientPro
               <div className="project-body">
                 <div className="project-title-row"><h3>{project.title}</h3><span className="project-number">{project.number}</span></div>
                 <p>{project.description}</p>
+                {project.role && <p className="project-role"><span>Role</span>{" "}{project.role}</p>}
                 <ul className="tech-pills" aria-label={`${project.title} technologies`}>
                   {project.stack.map((item) => <li key={item}>{item}</li>)}
                 </ul>
                 <div className="project-links">
-                  <a className="project-link-live" href={project.url} target="_blank" rel="noreferrer">{project.featured ? "Live project" : "Project details"}<span aria-hidden="true">↗</span></a>
+                  <a className="project-link-live" href={project.url} target="_blank" rel="noreferrer">{project.featured ? "Live project" : "Source code"}<span aria-hidden="true">↗</span></a>
                   {project.sourceUrl && <a className="project-link-source" href={project.sourceUrl} target="_blank" rel="noreferrer">Source code</a>}
                 </div>
               </div>

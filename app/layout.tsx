@@ -4,7 +4,7 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Mohamed Azhar Yusuf Omar — Full-Stack Developer",
   description: "Portfolio of Mohamed Azhar Yusuf Omar, a full-stack developer building thoughtful, database-driven products from Johannesburg, South Africa.",
-  applicationName: "Azhar Omar Portfolio",
+  applicationName: "Mohamed Azhar Yusuf Omar Portfolio",
   openGraph: {
     title: "Mohamed Azhar Yusuf Omar — Full-Stack Developer",
     description: "Building useful things for the real world.",

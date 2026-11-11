@@ -1,10 +1,11 @@
-export type ProjectCategory = "Full-Stack" | "AI & Tools" | "Frontend"
+export type ProjectCategory = "Freelance" | "University Projects"
 
 export type Project = {
   title: string
   category: ProjectCategory
   description: string
   stack: string[]
+  role?: string
   url: string
   domain: string
   sourceUrl?: string
@@ -20,7 +21,7 @@ export type StackGroup = {
 // Edit these objects to update your portfolio without changing the UI.
 export const profile = {
   name: "Mohamed Azhar Yusuf Omar",
-  shortName: "Azhar Omar",
+  shortName: "Mohamed Azhar Yusuf Omar",
   role: "Full-Stack Developer & Builder",
   location: "Johannesburg, South Africa",
   availability: "Available for projects",
@@ -35,43 +36,56 @@ export const projects: Project[] = [
   {
     number: "01",
     title: "Konnectli",
-    category: "Full-Stack",
+    category: "Freelance",
     description:
-      "A production multi-vendor marketplace connecting South African SMEs with customers. Built end-to-end with vendor, customer, and admin portals, KYB verification, and commission-based payments.",
-    stack: ["PHP", "MySQL", "JavaScript", "PayFast"],
-    url: "https://konnectli.com",
+      "A live, production marketplace connecting SME vendors with customers across South Africa. Includes vendor, customer, and admin portals, commission-based payments, KYB verification, location-aware search, and subscription tiers.",
+    role: "Sole developer — architecture, backend, frontend, and deployment.",
+    stack: ["PHP", "MySQL", "Vanilla JavaScript", "PayFast", "HostAfrica / cPanel"],
+    url: "https://konnectli.com/",
     domain: "konnectli.com",
     featured: true,
   },
   {
     number: "02",
-    title: "Municipal Community Platform",
-    category: "Full-Stack",
-    description:
-      "A resident-first service platform for reporting local issues and following their progress. Community events and RSVP sit alongside custom data structures for prioritization and location relationships.",
-    stack: ["ASP.NET Core", "C#", "SQL Server", "Tailwind CSS"],
-    url: "https://github.com/mazharyomar-Retro",
-    domain: "Case study · GitHub",
+    title: "CMCS — Lecturer Claim Management System",
+    category: "University Projects",
+    description: "A lecturer claim management system for tracking and submitting payment claims.",
+    role: "Developer (university project).",
+    stack: ["C#", "SQL Server", "SSMS"],
+    url: "https://github.com/VCSTDN2024/prog6212-poe-MAZHAR-02",
+    domain: "github.com/VCSTDN2024",
   },
   {
     number: "03",
-    title: "Agri-Energy Connect",
-    category: "Full-Stack",
+    title: "Agri-Energy Connect Platform",
+    category: "University Projects",
     description:
-      "An agriculture platform that helps farmers publish product listings while staff manage accounts and browse the catalog. Role-based access keeps each workflow focused and secure.",
+      "A web platform for farmers to manage and publish agricultural products, with employee tools for farmer accounts and searchable, filterable listings. Secure role-based login supports both workflows.",
+    role: "Developer (university project).",
     stack: ["ASP.NET Core MVC", "C#", "SQL Server"],
-    url: "https://github.com/mazharyomar-Retro",
-    domain: "Case study · GitHub",
+    url: "https://github.com/VCSTDN2024/prog7311-part-2-MAZHAR-02-1",
+    domain: "github.com/VCSTDN2024",
   },
   {
     number: "04",
-    title: "CMCS Claims",
-    category: "Full-Stack",
+    title: "Municipal Community Platform MyMunicipal",
+    category: "University Projects",
     description:
-      "A lecturer claim management system that brings submission, validation, and approval into one clear workflow. Structured records make claim status and payment tracking straightforward.",
-    stack: ["C#", "SQL Server", "Application Development"],
-    url: "https://github.com/mazharyomar-Retro",
-    domain: "Case study · GitHub",
+      "A community service platform for residents to report municipal issues and track requests, with local events and RSVP. Uses BSTs, heaps, and graphs for efficient data handling.",
+    role: "Developer (university project).",
+    stack: ["ASP.NET Core MVC / .NET 9", "C#", "SQL Server / ADO.NET", "Tailwind CSS"],
+    url: "https://github.com/VCSTDN2024/prog7312-poe-MAZHAR-02",
+    domain: "github.com/VCSTDN2024",
+  },
+  {
+    number: "05",
+    title: "Majoko Rentals — Website and App",
+    category: "University Projects",
+    description: "A rental-property website and companion app for discovering and managing rental properties.",
+    role: "UI/UX designer and developer (university project).",
+    stack: ["C#", "Firebase"],
+    url: "https://github.com/VCSTDN2024/insy7315-poe-ctrl-alt-elite-2",
+    domain: "github.com/VCSTDN2024",
   },
 ]
 
@@ -85,7 +99,7 @@ export const stack: StackGroup[] = [
  * Optional server-side content source. Set PORTFOLIO_CSV_URL to a published
  * Google Sheets CSV URL, or PORTFOLIO_NOTION_DATABASE_ID plus NOTION_API_KEY
  * to read a Notion database (share the database with your integration first).
- * CSV headers: title, category, description, stack, url, domain, sourceUrl, number.
+ * CSV headers: title, category, description, role, stack, url, domain, sourceUrl, number.
  * Notion properties use matching names; stack should be a multi-select property.
  * If variables are absent, a request fails, or parsing yields no projects, local
  * data remains the reliable fallback. Never expose the Notion key to the browser.
@@ -112,8 +126,9 @@ export async function getPortfolioProjects(): Promise<Project[]> {
           return {
             number: row.number?.trim() || String(index + 1).padStart(2, "0"),
             title,
-            category: isProjectCategory(category) ? category : "Full-Stack",
+            category: isProjectCategory(category) ? category : "University Projects",
             description: row.description?.trim() || "",
+            role: row.role?.trim() || undefined,
             stack: row.stack?.split(/[|,]/).map((item: string) => item.trim()).filter(Boolean) ?? [],
             url: safeUrl(row.url) || "#projects",
             domain: row.domain?.trim() || domainFromUrl(row.url),
@@ -152,8 +167,9 @@ export async function getPortfolioProjects(): Promise<Project[]> {
         return [{
           number: readText("number") || String(index + 1).padStart(2, "0"),
           title,
-          category: isProjectCategory(rawCategory) ? rawCategory : "Full-Stack",
+          category: isProjectCategory(rawCategory) ? rawCategory : "University Projects",
           description: readText("description"),
+          role: readText("role") || undefined,
           stack: stackItems,
           url,
           domain: readText("domain") || domainFromUrl(url),
@@ -192,7 +208,7 @@ function parseCsvRow(line: string): string[] {
 }
 
 function isProjectCategory(value: string): value is ProjectCategory {
-  return ["Full-Stack", "AI & Tools", "Frontend"].includes(value)
+  return ["Freelance", "University Projects"].includes(value)
 }
 
 function safeUrl(value?: string): string | undefined {
